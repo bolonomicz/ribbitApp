@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 	before_save :create_avatar_url
   before_validation :prep_email
 
+  has_many :ribbits
 
   def create_avatar_url
     self.avatar_url = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.email)}?s=50"
